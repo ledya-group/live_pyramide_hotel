@@ -7,6 +7,12 @@
 
 require('./bootstrap');
 
+require('./bootstrap-checkbox-radio');
+require('./bootstrap-notify');
+// require('./chartist.min');
+//
+require('./paper-dashboard');
+
 window.Vue = require('vue');
 
 /**

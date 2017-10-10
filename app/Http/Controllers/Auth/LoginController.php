@@ -36,4 +36,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function username()
+    {
+        return 'username';
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        return redirect()->back()
+            ->withInput($request->only($this->username(), 'remember'))
+            ->with('flash', 'La connexion n\'a pas reussi')
+            ->withErrors([
+                $this->username() => Lang::get('auth.failed'),
+            ]);
+    }
 }
