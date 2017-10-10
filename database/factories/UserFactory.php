@@ -16,9 +16,12 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     static $password;
 
+    $agent = factory(App\Agent::class)->create();
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'username' => $faker->userName(),
+        'owner_type' => 'App\Agent',
+        'owner_id' => $agent->id,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
