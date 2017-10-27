@@ -1,13 +1,13 @@
-@extends('layouts.admin_app', ['menu_id' => 'dashboard'])
+@extends('layouts.admin_app', ['menu_id' => 'users'])
 
-@section('title', 'Dashboard')
+@section('title', 'Utilisateurs')
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h3 class="title">Gestion des Utilisateurs</h3>
+                    <h4 class="title">Gestion des Utilisateurs</h4>
                     <p class="category">Ajouter, Modifier et Supprimer des utilisateurs</p>
                 </div>
                 <div class="content">

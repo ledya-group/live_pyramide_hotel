@@ -6,7 +6,24 @@
             'body'       => $message['message']
         ])
     @else
-        <div class="alert
+        @section('script')
+            <script>
+                $(document).ready(function(){
+                    $.notify({
+                        icon: '',
+                        message: "{!! $message['message'] !!}"
+                    },{
+                        type: '{{ $message["level"] }}',
+                        timer: 2000,
+                        placement: {
+                            from: 'top',
+                            align: 'right'
+                        }
+                    });
+                });
+            </script>
+        @endsection
+        {{--  <div class="alert
                     alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
                     role="alert"
@@ -20,7 +37,7 @@
             @endif
 
             {!! $message['message'] !!}
-        </div>
+        </div>  --}}
     @endif
 @endforeach
 

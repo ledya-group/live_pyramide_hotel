@@ -1,32 +1,46 @@
+<?php
+    $menu = [
+        [
+            'title' => 'Dashboard',
+            'menu_id' => 'dashboard',
+            'icon' => 'ti-panel',
+            'link' => route('dashboard')
+        ], [
+            'title' => 'Requetes',
+            'menu_id' => 'requests',
+            'icon' => 'ti-server',
+            'link' => route('requests.index')
+        ], [
+            'title' => 'Reservations',
+            'menu_id' => 'reservations',
+            'icon' => 'ti-book',
+            'link' => route('reservations.index')
+        ], [
+            'title' => 'Occupations',
+            'menu_id' => 'occupations',
+            'icon' => 'ti-pin-alt',
+            'link' => route('occupations.index')
+        ], [
+            'title' => 'Chambres',
+            'menu_id' => 'rooms',
+            'icon' => 'ti-home',
+            'link' => route('rooms.index')
+        ], [
+            'title' => 'Utilisateurs',
+            'menu_id' => 'users',
+            'icon' => 'ti-user',
+            'link' => route('users.index')
+        ]
+    ];
+?>
+
 <ul class="nav">
-    <li class="active">
-        <a href="dashboard.html">
-            <i class="ti-panel"></i>
-            <p>Dashboard</p>
+@foreach($menu as $item)
+    <li class="{{ ($item['menu_id'] == $menu_id) ? 'active':'' }}">
+        <a href="{{ $item['link'] }}">
+            <i class="{{ $item['icon'] }}"></i>
+            <p>{{ $item['title'] }}</p>
         </a>
     </li>
-    <li>
-        <a href="user.html">
-            <i class="ti-user"></i>
-            <p>Requests</p>
-        </a>
-    </li>
-    <li>
-        <a href="table.html">
-            <i class="ti-view-list-alt"></i>
-            <p>Occupations</p>
-        </a>
-    </li>
-    <li>
-        <a href="typography.html">
-            <i class="ti-text"></i>
-            <p>Reservations</p>
-        </a>
-    </li>
-    <li>
-        <a href="icons.html">
-            <i class="ti-pencil-alt2"></i>
-            <p>Chambres</p>
-        </a>
-    </li>
+@endforeach
 </ul>

@@ -11,9 +11,14 @@ class AgentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Agent::class, 10)->create()->each(function($agent) {
+        factory(App\Agent::class, 1)->create([
+            'first_name' => 'Daniel',
+            'last_name' => 'Rubango',
+            'email' => 'danielrubango@gmail.com',
+            'role_id' => 1
+        ])->each(function($agent) {
             $agent->account()->save(
-                factory(App\User::class)->make()
+                factory(App\User::class)->make(['username' => 'danielrubango'])
             );
         });
     }
