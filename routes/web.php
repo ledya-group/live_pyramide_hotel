@@ -1,9 +1,16 @@
 <?php
 
 Route::get('/', function () {
-    return view('admin.dashboard');
+    return redirect()->route('dashboard');
+});
+
+$adminOptions = [
+    'prefix' => 'admin',
+    'namespace' => 'admin'
+];
+
+Route::group($adminOptions, function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
