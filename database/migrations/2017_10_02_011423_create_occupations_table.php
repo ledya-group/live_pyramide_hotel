@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOccupanciesTable extends Migration
+class CreateOccupationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateOccupanciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('occupancies', function (Blueprint $table) {
+        Schema::create('occupations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('agent_id');
             $table->integer('client_id');
             $table->integer('room_id');
             $table->date('from_date');
             $table->date('to_date')->nullable();
-            $table->boolean('active')->default(false);
-            // $table->float('amount');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

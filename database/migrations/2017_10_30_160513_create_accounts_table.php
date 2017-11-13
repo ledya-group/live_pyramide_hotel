@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoomsTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->integer('room_type_id');
-            $table->string('status')->nullable();
+            $table->integer('client_id');
+            $table->integer('amount')->default(0);
+            $table->enum('account_type', [ 'usd', 'fc', 'euro', 'livre'])->default('usd');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('accounts');
     }
 }

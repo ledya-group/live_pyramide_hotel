@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\RoomType;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreRoomType;
+use App\Http\Requests\RoomTypeForm;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateRoomType;
 
 class RoomTypesController extends Controller
 {
@@ -15,7 +14,7 @@ class RoomTypesController extends Controller
         return view('admin.room_types.create');
     }
 
-    public function store(StoreRoomType $request)
+    public function store(RoomTypeForm $request)
     {
         $roomType = new RoomType();
         $roomType->create($request->all());
@@ -32,7 +31,7 @@ class RoomTypesController extends Controller
         return view('admin.room_types.edit', compact('roomType'));
     }
 
-    public function update(UpdateRoomType $request, $id)
+    public function update(RoomTypeForm $request, $id)
     {
         $roomType = RoomType::findOrFail($id);
         $roomType->update($request->all());

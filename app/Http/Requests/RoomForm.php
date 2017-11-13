@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRoomType extends FormRequest
+class RoomForm extends FormRequest
 {
     public function authorize()
     {
@@ -15,7 +15,7 @@ class UpdateRoomType extends FormRequest
     {
         return [
             'name'         => ['required'],
-            'base_price'   => ['required', 'numeric'],
+            'room_type_id' => ['required', 'exists:room_types,id'],
             'description'  => ['nullable']
         ];
     }
@@ -23,9 +23,9 @@ class UpdateRoomType extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Le nom de la catégorie est obligatoire',
-            'base.required' => 'Le prix de base est obligatoire',
-            'base.integer'  => 'Le prix de base doit être un entier',
+            'name.required'         => 'Le nom de la chambre est manquant',
+            'room_type_id.required' => 'Choisir une catégorie',
+            'room_type_id.exists'   => 'La catégorie doit exister',
         ];
     }
 }

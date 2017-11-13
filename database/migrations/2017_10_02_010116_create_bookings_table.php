@@ -15,12 +15,11 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('agent_id');
             $table->integer('customer_id');
             $table->integer('room_id')->nullable();
             $table->date('check_in');
             $table->date('check_out');
-            $table->boolean('active')->default(false);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

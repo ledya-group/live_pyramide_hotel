@@ -19,4 +19,14 @@ class Room extends Model
     {
         return "Aucun status disponible";
     }
+
+    public function occupancies()
+    {
+        $this->hasMany(Occupation::class);
+    }
+
+    public function fullName()
+    {
+        return "{$this->type->name} &mdash; {$this->name}";
+    }
 }

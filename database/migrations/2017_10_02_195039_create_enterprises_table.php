@@ -21,6 +21,7 @@ class CreateEnterprisesTable extends Migration
             $table->string('phone');
             $table->string('city');
             $table->string('country');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
