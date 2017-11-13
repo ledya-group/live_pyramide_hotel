@@ -8,6 +8,7 @@ $factory->define(App\Client::class, function (Faker $faker) {
         'first_name' => $faker->firstName(),
         'last_name' => $faker->lastName(),
         'email' => $faker->safeEmail(),
+        'company' => $faker->company(),
         'phone' => $faker->phoneNumber(),
         'country' => $faker->country(),
         'city' => $faker->city(),
