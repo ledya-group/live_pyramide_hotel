@@ -26,10 +26,10 @@
             'icon' => 'ti-home',
             'link' => route('rooms.index')
         ], [
-            'title' => 'Utilisateurs',
-            'menu_id' => 'users',
+            'title' => 'Clients',
+            'menu_id' => 'clients',
             'icon' => 'ti-user',
-            'link' => route('users.index')
+            'link' => route('clients.index')
         ]
     ];
 ?>

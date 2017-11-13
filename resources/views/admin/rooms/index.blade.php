@@ -32,17 +32,14 @@
                         {{ $room_type->name }} 
                     </h3>
                     <p class="category">{{ $room_type->description }}</p>
-                </div>
-                <div class="content">
-                    <div>
+                    <div style="margin-top: 15px;">
                         <a href="{{ route('rooms.create') . '?categorie=' . $room_type->id }}" title="Ajouter une chambre" class="btn btn-info btn-sm btn-fill">
                             Ajouter une chambre à la catégorie
                         </a>
                     </div>
-
-                    <br>
-
-                    <table class="table table-responsive table-full-width">
+                </div>
+                <div class="content table-full-width">
+                    <table class="table table-responsive">
                         <tbody>
                             <?php $i = 0; ?>
                             @forelse($room_type->rooms as $room)
